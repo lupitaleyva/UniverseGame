@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Trivia
+        </title>
+    </head>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+<header>
+                <h1></h1>
+                <ul>
+                <li id="timeRemaining">Time Remaining</li>
+                <li id="wins">Wins</li>
+                <li id="loses">Loses</li>
+                </ul>
+</header>
+
+<body>
+
+        <div class="text-center start-button">
+
+                
+          
+              </div>
+          
+
+<div class="box">
+
+    
+      
+        <h2>1. What is the closest Galaxy to the earth?</h2>
+        <p class="correct"><strong>a) Andromeda </strong></p>
+        <p class="incorrect"><strong>b) Milky Way</strong></p>
+        <p class="incorrect"><strong>c) The Sagitarious Dwarf</strong></p>
+        <p class= "incorrect"><strong>d) The Cannis Major Dwarf</strong></p>
+
+        <h2>2. Which planet is the second smallest in the solar system?</h2>
+        <p class="incorrect"><strong>a) Jupiter</strong></p>
+        <p class="incorrect"><strong>b) Saturn</strong></p>
+        <p class="correct"><strong>c) Mars</strong></p>
+        <p class= "incorrect"><strong>d) Venus</strong></p>
+
+        <h2>3. Which planet is the closest to the earth?</h2>
+        <p class="incorrect"><strong>a) Venus</strong></p>
+        <p class="correct"><strong>b) Mercury</strong></p>
+        <p class="incorrect"><strong>c) Mars</strong></p>
+        <p class= "incorrect"><strong>d) Jupiter</strong></p>
+
+        <h2>4. What city is the most populated in the world?</h2>
+        <p class="incorrect"><strong>a) Bangladesh</strong></p>
+        <p class="correct"><strong>b) Tokyo</strong></p>
+        <p class="incorrect"><strong>c) Hong Kong</strong></p>
+        <p class= "incorrect"><strong>d) New York</strong></p>
+
+        <h2>5. Which planet is the one that has more moons over the others"?</h2>
+        <p class="correct"><strong>a) Jupiter</strong></p>
+        <p class="incorrect"><strong>b) Saturn</strong></p>
+        <p class="incorrect"><strong>c) Mercury</strong></p>
+        <p class= "incorrect"><strong>d) Uster</strong></p>
+
+        <h2>6. Which is the Earth satellite?</h2>
+        <p class="incorrect"><strong>a) Sun</strong></p>
+        <p class="incorrect"><strong>b) Venus</strong></p>
+        <p class="incorrect"><strong>c) The moon</strong></p>
+        <p class= "correct"><strong>d) Artificial</strong></p>
+
+
+
+        <div class="text-center done-button">
+
+                
+                <button id="donebutton" class="done"><strong>DONE</strong></button>
+          
+        </div>
+
+</div>
+   
+<div id="image-div"></div>
+
+    <div>
+      
+    
+
+<footer class ="footer">
+    <h4>Copyright &#169 2018 </h4>
+    <h4>Lupita Leyva</h4>
+</footer>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function()  {
+    
+       
+      
+    
+        var winsCounter = 0;
+        var losesCounter = 0;
+        var timeRemaining = 0;
+
+
+    $(".correct").on("click", function() {
+    console.log(this);
+    winsCounter++;
+    console.log(winsCounter)
+    $("#wins").html("Wins :" + winsCounter);
+    });
+    
+    $(".incorrect").on("click", function() {
+    console.log(this);
+    losesCounter++;
+    console.log(losesCounter);
+    $("#loses").html("Loses :" + losesCounter);
+    
+    });
+
+
+    var number = 60;
+    var intervalId;
+
+    function run() {
+      clearInterval(intervalId);
+      intervalId = setInterval(decrement, 1000);
+    }
+
+    function decrement() {
+      number--;
+
+      $("#timeRemaining").html("Time Temaining: " + number);
+
+      if (number === 0) {
+        stop();
+        alert("Time Up!");
+        $(".start-button").hide();
+        $(".box").hide();
+        $(".done").hide();
+        $("#timeRemaining").show();
+        $("#wins").show();
+        $("#loses").show();
+        
+      }
+    }
+
+    function stop() {
+
+      clearInterval(intervalId);
+    }
+
+    run();
+});   
+
+ $(".done").on("click", function() {
+            console.log ("done");
+            $(".start-button").hide();
+            $(".box").hide();
+
+            $("#timeRemaining").show();
+            $("#wins").show();
+            $("#loses").show();
+
+
+}); 
+
+</script>
